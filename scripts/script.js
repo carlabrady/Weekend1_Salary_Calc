@@ -1,6 +1,7 @@
 console.log('js test');
 
 var staff = [];
+var money = 0;
 
 $(document).ready(onReady);
 
@@ -11,10 +12,24 @@ function onReady() {
 
 function infoSubmit() {
     console.log('submit button has been clicked');
-    new Employee ($('#firstIn').val(), $('#lastIn').val(), $('#empNumIn').val(), $('#jobTitleIn').val(), $('#salaryIn').val())
-    
-}
+    //create employee object
+    new Employee ($('#firstIn').val(), $('#lastIn').val(), $('#empNumIn').val(), $('#jobTitleIn').val(), $('#salaryIn').val());
 
+    //add salary to span
+    var $singleSalary = parseFloat($('#salaryIn').val());
+    var $originalAmount = parseFloat($('#monthCostCalc').html());
+    var newCost = $singleSalary/12 + $originalAmount;
+    console.log(newCost);
+    $('#monthCostCalc').html(newCost.toFixed(2));
+   
+    //reset info
+    $( '#firstIn' ).val( '' );
+    $( '#lastIn' ).val( '' );
+    $( '#empNumIn' ).val( '' );
+    $( '#jobTitleIn' ).val( '' );
+    $( '#salaryIn' ).val( '' );
+}
+//object constructor
 function Employee(firstIn, lastIn, empNumIn, jobTitleIn, salaryIn) {
     this.first = firstIn;
     this.last = lastIn;
