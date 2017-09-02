@@ -11,9 +11,21 @@
 </head>
 <body>
     <header>
+        <h1>Salary Calculator</h1>
     </header>
 
     <main>
+        <section id="secTitles">
+            <h3>Add Employee Information</h3>
+            <input type="text" placeholder="First" id="firstIn"/>
+            <input type="text" placeholder="Last" id="lastIn"/>
+            <input type="text" placeholder="ID number" id="empNumIn"/>
+            <input type="text" placeholder="Job Title" id="jobTitleIn"/>
+            <input type="text" placeholder="Annual Salary" id="salaryIn"/><br/>
+            <button id="addInfoButton">Submit</button>
+        </section>
+        <section id="monthlyCost">
+            <p>Monthly Wage Cost = $<span id=monthCostCalc></span></p>
     </main>
 
     <footer>
