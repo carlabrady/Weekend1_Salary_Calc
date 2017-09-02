@@ -1,5 +1,7 @@
 console.log('js test');
 
+var staff = [];
+
 $(document).ready(onReady);
 
 function onReady() {
@@ -19,5 +21,5 @@ function Employee(firstIn, lastIn, empNumIn, jobTitleIn, salaryIn) {
     this.empID = empNumIn;
     this.title = jobTitleIn;
     this.salary = salaryIn;
-
+    staff.push(this);
 }
