@@ -11,9 +11,9 @@ function onReady() {
 function infoSubmit() {
     console.log('submit button has been clicked');
     //create employee object
-    var employee = new Employee ($('#firstIn').val(), $('#lastIn').val(), $('#empNumIn').val(), $('#jobTitleIn').val(), $('#salaryIn').val());
     //add employee to staff array
-    staff.push(employee);
+    staff.push(employee());
+    appendDom ()    
     //reset input info
     $('#firstIn').val('');
     $('#lastIn').val('');
@@ -25,6 +25,20 @@ function infoSubmit() {
     //adds name to delete list
     deleteSelectList();
 }
+
+function appendDom () {
+    $('#employeeList').empty();
+    for (var i = 0; i < staff.length; i++) {
+        var individual = staff[i];
+        var $row = $('<tr></tr>');
+        $row.append('<td>' + individual.first + '</td>');
+        $row.append('<td>' + individual.last + '</td>');
+        $row.append('<td>' + individual.empID + '</td>');
+        $row.append('<td>' + individual.title + '</td>');
+        $row.append('<td>' + '$' + individual.salary + '</td>');
+        $('#employeeList').append($row);
+    }
+}
 // totaling salary
 function computeSalary() {
     var monthlyCost = 0;
@@ -35,12 +49,14 @@ function computeSalary() {
     $('#monthCostCalc').html(monthlyCost.toFixed(2));
 }
 //object constructor
-function Employee(firstIn, lastIn, empNumIn, jobTitleIn, salaryIn) {
-    this.first = firstIn;
-    this.last = lastIn;
-    this.empID = empNumIn;
-    this.title = jobTitleIn;
-    this.salary = salaryIn;
+function employee() {
+    var person = {}
+    person.first = $('#firstIn').val();
+    person.last = $('#lastIn').val();
+    person.empID = $('#empNumIn').val();
+    person.title = $('#jobTitleIn').val();
+    person.salary = $('#salaryIn').val();
+    return person;
 }
 //adding employees to drop down select
 function deleteSelectList () {
