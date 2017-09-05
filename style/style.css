@@ -1,0 +1,33 @@
+.main{
+    font-family: 'Avenir Next', serif;
+    color: #34495E;
+  }
+  
+  body{
+    background-color: #F8F4E0;
+  }
+  
+  h1 {
+    color: #16222D;
+    font-family: 'Didot', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  h3 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: left;
+    width: 100%;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: left;
+    width: 100%;
+  }
+  
